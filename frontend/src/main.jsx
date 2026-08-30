@@ -1,0 +1,15 @@
+import React from 'react'
+import {createRoot} from 'react-dom/client'
+import {BrowserRouter,Routes,Route} from 'react-router-dom'
+import Layout from './components/Layout'
+import RequireAuth from './components/RequireAuth'
+import {AuthProvider} from './context/AuthContext'
+import Home from './pages/Home'
+import Login from './pages/Login'
+import Report from './pages/Report'
+import Matches from './pages/Matches'
+import Details from './pages/Details'
+import ItemListPage from './components/ItemListPage'
+import './styles.css'
+function App(){return <AuthProvider><Layout><Routes><Route path="/" element={<Home/>}/><Route path="/login" element={<Login/>}/><Route path="/lost" element={<ItemListPage type="lost"/>}/><Route path="/found" element={<ItemListPage type="found"/>}/><Route path="/found/:id" element={<RequireAuth><Details/></RequireAuth>}/><Route path="/lost/:id" element={<RequireAuth><Details/></RequireAuth>}/><Route path="/report" element={<RequireAuth><Report/></RequireAuth>}/><Route path="/report/matches" element={<RequireAuth><Matches/></RequireAuth>}/><Route path="*" element={<Home/>}/></Routes></Layout></AuthProvider>}
+createRoot(document.getElementById('root')).render(<BrowserRouter><App/></BrowserRouter>)

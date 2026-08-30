@@ -1,0 +1,1 @@
+export default function EmptyState({title='Nothing here yet',text='Once reports are added, they will appear here.'}){return <div className="empty-state"><div className="empty-dot">∅</div><h3>{title}</h3><p>{text}</p></div>}
