@@ -1,0 +1,8 @@
+# Runtime Dependencies for Cream Beans AI/ML Matching Engine (CLIP_Algo)
+
+torch
+transformers
+pillow
+numpy
+python-dateutil
+pytest
